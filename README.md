@@ -1,70 +1,74 @@
-# G12 - TPI - Reservas de canchas
+# G12 – TPI – Court Reservations
 
-En este README.md se deja la constancia del Trabajo Práctico Integrador de Desarrollo de Aplicaciones con Objetos, siguiendo la estructura de actividades propuestas por la cátedra a resolver con los links e imágenes correspondientes a los diagramas de la documentación requerida.
-
----
-
-## Resumen de Funcionalidades
-
-El sistema permite gestionar las reservas de canchas deportivas de un complejo.
-
-Sirve para administrar clientes, canchas, horarios, torneos y servicios adicionales (como iluminación o árbitros), garantizando la disponibilidad de las canchas, evitando el solapamientos de horarios. Además, se incluyen reportes estadísticos sobre la utilización de las canchas y se permite el registro de pagos asociados a las reservas/torneos.
-
-El *objetivo* principal es digitalizar y optimizar el proceso de reserva, eliminando los conflictos generados por la superposición de horarios, brindando información clara sobre la ocupación y facturación del complejo.
+This README.md documents the Integrative Practical Project for Application Development with Objects, following the activity structure proposed by the course, including links and images corresponding to the required diagrams.
 
 ---
 
-## Casos de Uso
+## Feature Overview
 
-Las funcionalidades que proponemos resolver son las que listamos en la siguiente tabla:
+The system allows managing sports court reservations for a sports complex.
 
-| Nº  | Caso de Uso                                                      | Descripción de CU                                                                                         |
-| ---- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| CU1  | **Registrar Cliente**                                      | Permitir ingresar un nuevo cliente en el sistema validando que el DNI no esté repetido.                  |
-| CU2  | **Modificar / Eliminar Cliente**                           | Actualizar/elimina datos de clientes existentes.                                                           |
-| CU3  | **Registrar Cancha**                                       | Crear una nueva cancha con su tipo, costo y servicios asociados.                                           |
-| CU4  | **Modificar estado de Cancha**                             | Permitir actualizar el estador una cancha.                                                                |
-| CU5  | **Registrar Reserva**                                      | Crear una reserva vinculando cliente, cancha, fecha y hora. Verificar disponibilidad antes de confirmarla. |
-| CU6  | **Modificar Reserva**                                      | Permitir cambiar horario o anular una reserva existente.                                                   |
-| CU7  | **Consultar Disponibilidad**                               | Mostrar las canchas disponibles en una fecha y franja horaria.                                             |
-| CU8  | **Registrar Torneo**                                       | Permitir crear torneos, asignando canchas y vincular reservas.                                             |
-| CU9  | **Registrar Pago**                                         | Registrar el pago de una reserva o torneo indicando monto, fecha y método.                                |
-| CU10 | **Registrar Servicio**                                     | Registrar el servicio asociado a una cancha en particular.                                                 |
-| CU11 | **Generar Reporte de Reservas por Cliente**                | Generar reporte con todas las reservas realizadas por un cliente, con fechas y estados.                   |
-| CU12 | **Generar Reporte de Reservas por Cancha y Período**      | Generar reporte de las reservas de una cancha dentro de un rango de fechas.                                |
-| CU13 | **Generar Reporte de Canchas más Utilizadas**             | Generar reporte que indica cuáles son las canchas con mayor cantidad de reservas.                         |
-| CU14 | **Generar Gráfico Estadístico de Utilización Mensual** | Generar gráficos (barras o tortas) con la ocupación mensual de las canchas.                              |
+It is used to manage clients, courts, schedules, tournaments, and additional services (such as lighting or referees), ensuring court availability and preventing schedule overlaps. It also includes statistical reports about court utilization, and allows registering payments associated with reservations/tournaments.
+
+The main **objective** is to digitize and optimize the reservation process, eliminating conflicts caused by overlapping time slots, providing clear information about court occupancy and billing.
 
 ---
 
-## Patron aplicado
+## Use Cases
 
-Hemos aplicado el patron DAO para gestionar las consultas CRUD separando la logica de negocio de la persistencia en la Base de Datos y una arquitectura monolitica de tipo MVC para la organizacion del codigo.
+The functionalities we propose to implement are listed in the following table:
 
-
-![1761688556730](assets/imgs/mvc.jpg)
-
-
-## Diagrama de Entidades-Relación
-
-Para realizar el DER hemos utilizado la herramienta dbdiagram.io, el diagrama que hemos propuesto es el siguiente:
-![1761688556738](assets/imgs/G12_TPI_DAO_DER.png)
+| Nº  | Use Case                                                   | Description                                                                                               |
+| --- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| UC1 | **Register Client**                                       | Add a new client to the system, validating that the ID number is not duplicated.                         |
+| UC2 | **Modify / Delete Client**                                | Update or delete existing client data.                                                                    |
+| UC3 | **Register Court**                                        | Create a new court with its type, cost, and associated services.                                          |
+| UC4 | **Modify Court Status**                                   | Update the status of a court.                                                                             |
+| UC5 | **Register Reservation**                                  | Create a reservation linking client, court, date, and time. Availability is checked before confirmation. |
+| UC6 | **Modify Reservation**                                    | Change schedule or cancel an existing reservation.                                                        |
+| UC7 | **Check Availability**                                    | Display available courts for a date and time range.                                                       |
+| UC8 | **Register Tournament**                                   | Create tournaments, assign courts, and link reservations.                                                 |
+| UC9 | **Register Payment**                                      | Register a payment for a reservation or tournament (amount, date, method).                               |
+| UC10| **Register Service**                                      | Register a service associated with a specific court.                                                      |
+| UC11| **Generate Report of Reservations by Client**             | Generate a report listing all reservations made by a client.                                              |
+| UC12| **Generate Report of Reservations by Court and Period**   | Generate a report of court reservations within a date range.                                              |
+| UC13| **Generate Report of Most Used Courts**                   | Generate a report showing which courts are most frequently reserved.                                      |
+| UC14| **Generate Monthly Usage Statistics Chart**               | Generate charts (bar or pie) showing monthly court utilization.                                           |
 
 ---
 
-## Diagrama de Clases
+## Applied Design Pattern
 
-Hemos construido un diagrama de clases con la herramienta draw.io. El diagrama que propusimos es el siguiente:
-![1761688567933](assets/imgs/G12_DAO_Reservas_Canchas-diagrama-terminado.jpg)
+We applied the **DAO pattern** to manage CRUD operations, separating business logic from persistence in the database, along with a **monolithic MVC architecture** for code organization.
+
+![MVC Diagram](assets/imgs/mvc.jpg)
 
 ---
 
-### Integrantes del grupo
+## Entity–Relationship Diagram
 
-| Legajo | Apellido y Nombre         | mail                            |
-| ------ | ------------------------- | ------------------------------- |
-| 93203  | Ceballos Pratto, Agustín | agusceballos000@gmail.com       |
-| 95309  | Fernandez, Julian         | julianfernandez159155@gmail.com |
-| 94416  | Pecchio, Valentina        | valuupecchio@gmail.com          |
-| 91541  | Villegas, Genaro          | gvillegaslearning@gmail.com     |
-| 89390  | Wendler, Juan José       | juanjoowendler@gmail.com        |
+The ER diagram was created using **dbdiagram.io**. The proposed diagram is shown below:
+
+![ER Diagram](assets/imgs/G12_TPI_DAO_DER.png)
+
+---
+
+## Class Diagram
+
+The class diagram was built using **draw.io**. The proposed diagram is shown below:
+
+![Class Diagram](assets/imgs/G12_DAO_Reservas_Canchas-diagrama-terminado.jpg)
+
+---
+
+## Team Members
+
+| Student ID | Last Name, First Name      | Email                           |
+| ---------- | ------------------------- | -------------------------------- |
+| 93203      | Ceballos Pratto, Agustín | agusceballos000@gmail.com        |
+| 95309      | Fernandez, Julian         | julianfernandez159155@gmail.com  |
+| 94416      | Pecchio, Valentina        | valuupecchio@gmail.com           |
+| 91541      | Villegas, Genaro          | gvillegaslearning@gmail.com      |
+| 89390      | Wendler, Juan José        | juanjoowendler@gmail.com         |
+
+---
